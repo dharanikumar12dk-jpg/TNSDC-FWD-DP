@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Designer Portfolio</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00adb5;
+    }
+
+    section {
+      padding: 100px 50px;
+      min-height: 100vh;
+    }
+
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #00adb5, #393e46);
+      color: white;
+      text-align: center;
+    }
+
+    #home h2 {
+      font-size: 50px;
+    }
+
+    #home p {
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    #about,
+    #projects,
+    #contact {
+      background: #f9f9f9;
+    }
+
+    #about h2, #projects h2, #contact h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #00adb5;
+    }
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-form button {
+      background: #00adb5;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #007a7f;
+    }
+
+    footer {
+      text-align: center;
+      background: #111;
+      color: #fff;
+      padding: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Hello, I'm <span style="color:#00ffcc;">yesudass </span></h2>
+    <p>Software Designer | UI/UX Enthusiast | Creative Thinker</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      I am a Software Designer passionate about crafting intuitive, user-friendly, and visually appealing
+      software experiences. I specialize in UI/UX design, system architecture, and bridging the gap
+      between technical development and creative design. My focus is on building software that not only
+      works efficiently but also delights users.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <h3>UI Dashboard Design</h3>
+        <p>A clean, modern dashboard interface designed with usability and accessibility in mind.</p>
+      </div>
+      <div class="project-card">
+        <h3>Mobile App Prototype</h3>
+        <p>An interactive mobile app prototype showcasing smooth navigation and appealing layouts.</p>
+      </div>
+      <div class="project-card">
+        <h3>Design System</h3>
+        <p>A reusable design system that standardizes components, colors, and typography for scalable apps.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form" onsubmit="return sendMessage()">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Your Name. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href"))
+          .scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Fake send message function
+    function sendMessage() {
+      alert("Thank you! Your message has been sent.");
+      return false; // prevent actual form submit
+    }
+  </script>
+</body>
+</html>
